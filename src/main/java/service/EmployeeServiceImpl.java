@@ -1,19 +1,36 @@
 package service;
 
+import dao.EmployeeDAOImpl;
+import dao.EmployeeDao;
 import model.Employee;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public interface EmployeeServiceImpl {
-    public void addEmployee();
+public class EmployeeServiceImpl {
 
-    public Employee getEmployeeById(int id);
+    private final EmployeeDao employeeDao = new EmployeeDAOImpl();
 
-    public ArrayList<Employee> getAllEmployees();
+    public void addEmployee(Employee employee) {
+        employeeDao.addEmployee(employee);
+    }
 
-    public void updateEmployee();
+    public Employee getEmployeeById(int id) {
+        return employeeDao.getEmployeeById(id);
+    }
 
-    public void deleteEmployee(int id);
+    public List<Employee> getAllEmployees() {
+        return employeeDao.listEmployee();
+    }
 
-    public void ListEmployeesByDepartment(int departmentId);
+    public void updateEmployee(Employee employee) {
+        employeeDao.updateEmployee(employee);
+    }
+
+    public void deleteEmployee(int id) {
+        employeeDao.deleteEmployee(id);
+    }
+
+    public void ListEmployeesByDepartment(int departmentId) {
+        employeeDao.listEmployee();
+    }
 }

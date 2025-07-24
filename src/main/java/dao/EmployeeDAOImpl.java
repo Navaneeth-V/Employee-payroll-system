@@ -1,14 +1,25 @@
 package dao;
 
 import model.Employee;
+import util.DBConnection;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class EmployeeDAOImpl implements EmployeeDao {
 
     @Override
     public void addEmployee(Employee employee) {
-        // implementation
+
+        Connection connection = DBConnection.getConnection();
+        try {
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            connection.close();
+        }
     }
 
     @Override
