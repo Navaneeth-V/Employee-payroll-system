@@ -11,26 +11,52 @@ public class EmployeeServiceImpl {
     private final EmployeeDao employeeDao = new EmployeeDAOImpl();
 
     public void addEmployee(Employee employee) {
-        employeeDao.addEmployee(employee);
+        try {
+            employeeDao.addEmployee(employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public Employee getEmployeeById(int id) {
-        return employeeDao.getEmployeeById(id);
+        try {
+            return employeeDao.getEmployeeById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public List<Employee> getAllEmployees() {
-        return employeeDao.listEmployee();
+        try {
+            return employeeDao.listEmployee();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void updateEmployee(Employee employee) {
-        employeeDao.updateEmployee(employee);
+        try {
+            employeeDao.updateEmployee(employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void deleteEmployee(int id) {
-        employeeDao.deleteEmployee(id);
+        try {
+            employeeDao.deleteEmployee(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void ListEmployeesByDepartment(int departmentId) {
-        employeeDao.listEmployee();
+        try {
+            employeeDao.listEmployee();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
