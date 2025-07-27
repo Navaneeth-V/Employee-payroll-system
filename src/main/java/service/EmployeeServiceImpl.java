@@ -1,14 +1,14 @@
 package service;
 
 import dao.EmployeeDAOImpl;
-import dao.EmployeeDao;
+import dao.EmployeeDAO;
 import model.Employee;
 
 import java.util.List;
 
 public class EmployeeServiceImpl {
 
-    private final EmployeeDao employeeDao = new EmployeeDAOImpl();
+    private final EmployeeDAO employeeDao = new EmployeeDAOImpl();
 
     public void addEmployee(Employee employee) {
         try {
