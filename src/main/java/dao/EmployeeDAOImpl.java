@@ -82,7 +82,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public void updateEmployee(Employee employee) throws SQLException {
+    public void updateEmployee(int id, Employee employee) throws SQLException {
         Connection connection = DBConnection.getConnection();
         String sql = "update employee set name = ?, designation = ?, departmentId = ?, salary = ? where id = ?";
         try(PreparedStatement statement = connection.prepareStatement(sql)) {

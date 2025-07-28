@@ -6,10 +6,11 @@ import model.Employee;
 
 import java.util.List;
 
-public class EmployeeServiceImpl {
+public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeDAO employeeDao = new EmployeeDAOImpl();
 
+    @Override
     public void addEmployee(Employee employee) {
         try {
             employeeDao.addEmployee(employee);
@@ -18,6 +19,7 @@ public class EmployeeServiceImpl {
         }
     }
 
+    @Override
     public Employee getEmployeeById(int id) {
         try {
             return employeeDao.getEmployeeById(id);
@@ -27,6 +29,7 @@ public class EmployeeServiceImpl {
         return null;
     }
 
+    @Override
     public List<Employee> getAllEmployees() {
         try {
             return employeeDao.listEmployee();
@@ -36,14 +39,16 @@ public class EmployeeServiceImpl {
         return null;
     }
 
-    public void updateEmployee(Employee employee) {
+    @Override
+    public void updateEmployee(int id, Employee employee) {
         try {
-            employeeDao.updateEmployee(employee);
+            employeeDao.updateEmployee(id, employee);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Override
     public void deleteEmployee(int id) {
         try {
             employeeDao.deleteEmployee(id);
@@ -52,6 +57,7 @@ public class EmployeeServiceImpl {
         }
     }
 
+    @Override
     public void ListEmployeesByDepartment(int departmentId) {
         try {
             employeeDao.listEmployeeByDepartment(departmentId);
