@@ -13,6 +13,8 @@ public interface EmployeeDAO {
 
     Employee getEmployeeById(int id) throws SQLException;
 
+    List<Employee> listEmployeeByDepartment(int departmentId) throws SQLException;
+
     void updateEmployee(Employee employee) throws SQLException;
 
     void deleteEmployee(int id) throws SQLException;

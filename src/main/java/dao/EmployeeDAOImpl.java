@@ -53,7 +53,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         } finally {
             connection.close();
         }
-        return null;
+        return employees;
     }
 
     @Override
@@ -107,5 +107,31 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Employee> listEmployeeByDepartment(int departmentId) throws SQLException {
+        List<Employee> employees = new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        String sql = "SELECT * FROM employee WHERE departmentId = ?";
+        try(PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, departmentId);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                Employee employee = new Employee();
+                employee.setId(resultSet.getInt("id"));
+                employee.setName(resultSet.getString("name"));
+                employee.setDesignation(resultSet.getString("designation"));
+                employee.setDepartmentId(resultSet.getInt("departmentId"));
+                employee.setSalary(resultSet.getDouble("salary"));
+
+                employees.add(employee);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            connection.close();
+        }
+
+        return employees;
     }
 }

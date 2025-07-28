@@ -54,7 +54,7 @@ public class EmployeeServiceImpl {
 
     public void ListEmployeesByDepartment(int departmentId) {
         try {
-            employeeDao.listEmployee();
+            employeeDao.listEmployeeByDepartment(departmentId);
         } catch (Exception e) {
             e.printStackTrace();
         }
