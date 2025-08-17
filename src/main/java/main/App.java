@@ -18,7 +18,7 @@ public class App {
             System.out.println("4. Update Employee");
             System.out.println("5. Delete Employee");
             System.out.println("6. Exit");
-            System.out.println("Enter your choice");
+            System.out.println("Enter your choice :");
             int choice = sc.nextInt();
 
             switch (choice) {
